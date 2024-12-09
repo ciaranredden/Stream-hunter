@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Stream-Hunter</title>
+    
+    <!-- Link to Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link to the external CSS file -->
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'streamhunter/style.css' %}">
+
+    <!-- Inline JavaScript to ensure the title transition works -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Trigger transition for title after a delay
+            setTimeout(() => {
+                document.querySelector('.title').classList.add('loaded');  // Apply transition for title after 3 seconds
+            }, 3000); // 3-second delay for title
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Stream-Hunter</h1> <!-- Targeting this title element -->
+        
+        <!-- Content of the Info Page -->
+        <div class="scrollable-content">
+            <p>Welcome to Stream-Hunter!</p>
+            <p>Stream-Hunter helps you find where to watch your favorite movies, TV shows, and actor filmographies, all in one place. No more wasting time searching through multiple streaming platforms! Simply type in a movie title, TV show name, or actor's name, and Stream-Hunter will provide you with a list of available platforms where the content is streaming, as well as regional availability information. It’s that simple!</p>
+            
+            <p><strong>Key Features:</strong></p>
+			
+            <ul>
+                <li>Search movies or shows to see availability across streaming platforms.</li>
+                <li>Find content by actor and explore their full filmography.</li>
+                <li>Access detailed streaming and regional availability information.</li>
+            </ul>
+        </div>
+		
+		<nav class="nav-menu">
+    <ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'info' %}">Info</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+</nav>
+        
+        <!-- Back Home Link -->
+        <a href="{% url 'index' %}" class="back-home-link">Back Home</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Stream-Hunter. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

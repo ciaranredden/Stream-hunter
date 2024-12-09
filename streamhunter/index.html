@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Search Engine</title>
+    
+    <!-- Link to Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link to the external CSS file -->
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'streamhunter/style.css' %}">
+
+
+    <!-- Inline JavaScript to ensure the title transition works -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Trigger transition for title and logo after delays
+            setTimeout(() => {
+                document.querySelector('.title').classList.add('loaded');  // Apply transition for title after 3 seconds
+            }, 3000); // 3-second delay for title
+            
+            setTimeout(() => {
+                document.querySelector('.info-logo-link').classList.add('show');  // Apply transition for logo after 2 seconds
+            }, 2000); // 2-second delay for logo
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title">Stream-Hunter</h1> <!-- Targeting this title element -->
+        
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" id="searchQuery" placeholder="Enter movie title, TV show, or actor..." required>
+        </div>
+
+        <!-- Search Button moved below the input field -->
+        <button class="search-button" onclick="search()">Search</button>
+    </div>
+	
+	<nav class="nav-menu">
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'info' %}">Info</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+</nav>
+
+    <!-- Logo image (link to second page) -->
+   <a href="info.html" class="info-logo-link">
+    <img src="{% static 'streamhunter/infologo.jpg' %}" class="infologo" alt="InfoLogo">
+</a>
+
+    <!-- Optional JavaScript for search functionality -->
+    <script>
+        function search() {
+            const query = document.getElementById('searchQuery').value;
+            
+            if (query.trim() === "") {
+                alert("Please enter a search query.");
+                return;
+            }
+
+            // Mockup alert to show what would be searched
+            alert(`Searching for: ${query}`);
+        }
+    </script>
+
+    <footer class="footer">
+        <p>&copy; 2024 Stream-Hunter. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

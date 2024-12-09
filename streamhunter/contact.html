@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Stream-Hunter</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'streamhunter/style.css' %}">
+
+    <!-- JavaScript for Title Transition -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.querySelector(".title").classList.add("loaded");
+            }, 1000); // 1-second delay
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+			<li><a href="{% url 'info' %}">Info</a></li>
+			<li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="title">Contact Us</h1>
+
+        <p>Have any questions or issues? Feel free to email us at <strong>stream-hunter@gmail.com</strong> or use the form below to get in touch.</p>
+
+        <!-- Email Us Form -->
+        <form id="contactForm" class="contact-form">
+            <div class="form-group">
+                <label for="userEmail">Your Email:</label>
+                <input type="email" id="userEmail" name="userEmail" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="userMessage">Your Message:</label>
+                <textarea id="userMessage" name="userMessage" rows="5" placeholder="Describe the issue..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Send</button>
+        </form>
+    </div>
+
+    <!-- Back Home Link -->
+    <a href="{% url 'index' %}" class="back-home-link">Back Home</a>
+
+    <footer class="footer">
+        <p>&copy; 2024 Stream-Hunter. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
